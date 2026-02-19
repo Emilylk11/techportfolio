@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emily.exe — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="crt">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="hud" id="hud">
+      <header class="hud-top">
+        <div class="brand">
+          <div class="brand-logo">EMILY.EXE</div>
+          <div class="brand-sub">PORTFOLIO INTERFACE // v1.0</div>
+        </div>
+
+        <button class="menu-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <div class="hud-body" id="parallax">
+        <!-- LEFT: INFO -->
+        <section class="info">
+          <h1 class="title glitch" data-text="EMILY">EMILY</h1>
+          <p class="lore" id="desc">
+            Web + marketing designer focused on conversion, clean UI systems, and “make it feel expensive” vibes.
+            Select a project below to enter its case file.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">ENTER CASE FILE</a>
+            <a class="btn ghost" href="#contact">CONTACT</a>
+          </div>
+
+          <div class="divider"></div>
+
+          <dl class="stats">
+            <div><dt>Class</dt><dd>Designer / Builder</dd></div>
+            <div><dt>Main</dt><dd>CRO + UI Systems</dd></div>
+            <div><dt>Tools</dt><dd>Figma • WP • HTML/CSS</dd></div>
+          </dl>
+        </section>
+
+        <!-- CENTER: HERO (YOU) -->
+        <section class="hero">
+          <img id="heroImg" src="assets/me-hero.png" alt="Stylized portrait of Emily" />
+          <div class="hero-shadow" aria-hidden="true"></div>
+        </section>
+
+        <!-- RIGHT: PREVIEW PANEL -->
+        <aside class="preview">
+          <div class="preview-frame">
+            <video id="previewVid" muted autoplay loop playsinline>
+              <source src="assets/previews/uncomn.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <a class="preview-link" id="previewLink" href="projects/uncomn-refresh.html">
+            &gt; View the case file
+          </a>
+
+          <div class="side-text" aria-hidden="true">
+            SIGNAL DETECTED ■ SIGNAL DETECTED ■ SIGNAL DETECTED ■ SIGNAL DETECTED
+          </div>
+        </aside>
+
+        <!-- BOTTOM: PROJECT CARDS -->
+        <nav class="thumbs" id="projects" aria-label="Project selector">
+          <!-- JS renders these -->
+        </nav>
+      </div>
+
+      <footer class="hud-footer">
+        <div class="tabs">
+          <button class="tab active">Info</button>
+          <button class="tab">Projects</button>
+          <button class="tab">Stats</button>
+        </div>
+        <a class="visit" href="#contact">Ping me</a>
+      </footer>
+
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="noise" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
