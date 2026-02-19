@@ -1,18 +1,27 @@
 :root{
-  --bg1:#050612;
-  --bg2:#070820;
-  --neon:#ff2bd6;
-  --cyan:#2ef0ff;
-  --fg:#f2f3ff;
-  --muted:#b7b9d4;
+  /* Night base */
+  --bg1:#05070f;
+  --bg2:#060b18;
 
-  --panel: rgba(8, 10, 22, .72);
-  --stroke: rgba(255,255,255,.12);
+  /* Accents */
+  --neon:#25f4c3;   /* emerald */
+  --cyan:#52a9ff;   /* ice blue */
+  --warm:#ffd166;   /* optional highlight */
+
+  /* Text */
+  --fg:#eef2ff;
+  --muted:#a7b0d6;
+
+  /* Panels */
+  --panel: rgba(6, 10, 22, .74);
+  --stroke: rgba(255,255,255,.10);
+
+  /* UI */
   --shadow: 0 30px 90px rgba(0,0,0,.65);
   --radius: 22px;
-
   --cut: 18px;
 }
+
 
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -37,8 +46,8 @@ body{
 .bg-glow{
   position:fixed; inset:-25%;
   background:
-    radial-gradient(circle at 20% 35%, rgba(255,43,214,.35), transparent 45%),
-    radial-gradient(circle at 70% 45%, rgba(46,240,255,.22), transparent 50%);
+    radial-gradient(circle at 18% 30%, rgba(37,244,195,.28), transparent 48%),
+    radial-gradient(circle at 78% 42%, rgba(82,169,255,.22), transparent 52%);
   z-index:-2;
 }
 
@@ -142,8 +151,8 @@ body{
 }
 .btn:hover{transform: translateY(-1px); box-shadow: 0 14px 40px rgba(0,0,0,.35)}
 .btn.primary{
-  background: linear-gradient(90deg, rgba(255,43,214,.32), rgba(46,240,255,.16));
-  border-color: rgba(255,43,214,.35);
+  background: linear-gradient(90deg, rgba(37,244,195,.28), rgba(82,169,255,.14));
+  border-color: rgba(37,244,195,.40);
 }
 .btn.ghost{background: rgba(255,255,255,.04)}
 
@@ -275,9 +284,10 @@ dd{margin:6px 0 0; font-weight:900}
 }
 .thumb:hover{transform: translateY(-2px)}
 .thumb.active{
-  border-color: rgba(255,43,214,.55);
-  box-shadow: 0 0 0 2px rgba(255,43,214,.14), 0 18px 60px rgba(255,43,214,.10);
+  border-color: rgba(37,244,195,.60);
+  box-shadow: 0 0 0 2px rgba(37,244,195,.16), 0 18px 60px rgba(37,244,195,.12);
 }
+
 
 /* Footer */
 .hud-footer{
@@ -441,3 +451,67 @@ dd{margin:6px 0 0; font-weight:900}
   .project-grid{grid-template-columns: 1fr}
   .gallery{grid-template-columns: 1fr}
 }
+
+/* ===== FULLSCREEN FIX (override) ===== */
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden; /* game UI = no page scroll */
+}
+
+.wrap {
+  min-height: 100vh;
+  padding: 0 !important;
+  display: block !important;
+}
+
+/* HUD becomes the whole screen */
+.hud {
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+  box-shadow: none !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* Remove inset border that was built for a card */
+.hud::before {
+  inset: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Make the interior layout fill the screen nicely */
+.hud-body {
+  min-height: calc(100vh - 160px) !important; /* header+footer space */
+  padding: 10px 40px 20px !important;
+}
+
+/* Keep the hero centered and responsive */
+.hero img {
+  width: min(760px, 52vw) !important;
+  max-height: 72vh !important;
+}
+
+/* Thumbs stay visible */
+.thumbs {
+  position: absolute;
+  left: 40px;
+  bottom: 90px;
+  right: 40px;
+  padding-top: 0 !important;
+}
+
+/* Footer pinned */
+.hud-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
